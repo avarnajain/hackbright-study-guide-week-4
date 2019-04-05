@@ -73,7 +73,7 @@ SELECT brand_id, name FROM models WHERE year = 1964;
 -----
 
 Select the model name, brand name, and headquarters for
-the Ford Mustang from the models and brands tables. Though it's unlikely,
+the Ford Mustang from the models and brands tables. Though it is unlikely,
 remember to account for the possibility that there could be another brand
 which also offers a Mustang; that is, specifically select the *Ford* Mustang.
 
