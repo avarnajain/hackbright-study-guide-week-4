@@ -121,6 +121,7 @@
 </div>
 
 
+<script src="http://code.jquery.com/jquery.js"></script>
 
 <h3>Finding the Button</h3>
 <p>
@@ -133,7 +134,11 @@
 
 <script>
   "use strict";
-  // code here for above problem
+
+  $(".find-me").on('click', () => {
+    alert('Popup!');
+  });
+
 </script>
 
 <div class="hint">
@@ -165,7 +170,14 @@
 
 <script>
   "use strict";
-  // put your code here
+
+  function animationAppears(evt) {
+    $('#cute-porcupine-image').delay(1000).slideDown();
+  }
+
+  $('#make-a-porcupine').on('click', animationAppears);
+
+
 </script>
 
 <div class="hint">
@@ -196,7 +208,15 @@
 
 <script>
   "use strict";
-  // put your code here
+
+  function favoriteFood(evt) {
+    evt.preventDefault();
+    let favFood = $('#favorite-food-input').val()
+    $('#agreeable-text').html(`I like ${favFood} too`);
+  }
+
+  $('#agreeable-form').on('submit', favoriteFood);
+
 </script>
 
 <div class="hint">
@@ -233,9 +253,39 @@
 <script>
   "use strict";
 
-    var PRIME_COLORS = ['orange', 'midnightblue', 'darkgoldenrod', 'green', 'purple'];
+  var PRIME_COLORS = ['orange', 'midnightblue', 'darkgoldenrod', 'green', 'purple'];
 
-  // put the rest of your code here
+  function isPrime(x) {
+    // is X prime?
+
+    for (let i = 2; i * i <= x; i++) {
+        if (x % i === 0) {
+            return false;
+        }
+    }
+    // We never found a divisor, so it's prime
+    return true;
+  }
+
+  function makePrimes(evt) {
+    let number = 2;
+    let primeCount = 0;
+    $('#prime-circle-area').html('');
+    while (primeCount < 5) {
+      if (isPrime(number)) {
+        $('#prime-circle-area').append(`
+          <div class="prime-circle" style="background-color: ${PRIME_COLORS[primeCount]}">${number}</div>
+          `)
+        primeCount += 1;
+      }
+      number += 1;
+    }
+    primeNumber(3);
+  }
+
+  $('#make-prime-circles').on('click', makePrimes);
+
+
 </script>
 
 
@@ -301,7 +351,6 @@
   interesting pseudo-selectors like <code>:before</code> and uses things
   like CSS numbering. Neat stuff.
 </p>
-
 
 
 </body>
