@@ -332,6 +332,16 @@
     $("#puppies-go-here").append(puppyPhoto);
   }
 
+  function returnRoute(evt) {
+    evt.preventDefault();
+
+    let numPuppies = $('#num-puppies').val();
+    let data = {"num-puppies": numPuppies};
+    $.get('/puppies.json', data, showPuppies);
+
+  }
+ 
+  $('#puppy-form').on('submit', returnRoute);
   // put your code here
 
 </script>
