@@ -19,6 +19,7 @@
 <img src="http://thuglifememe.com/wp-content/uploads/2017/08/22-you-got-this-meme-9.jpg">
 
 
+
 <h2>Plain JavaScript</h2>
 <p>You may not use jQuery for this section!</p>
 
@@ -36,9 +37,13 @@
 
 <script>
   "use strict";
-  // code here for above problem
+  //create button 
+  const popupButton = document.querySelector('#popup-alert-button');
+  //create even handler
+  popupButton.addEventListener('click', () => {
+    alert('This is a popup');
+  })
 </script>
-
 
 
 <h3>Practicing Your Times Tables</h3>
@@ -75,10 +80,26 @@
 
 </fieldset>
 
+
 <script>
   "use strict";
-
-  // code here for the above problem
+  let multiplyForm = document.querySelector('#multiplying-form');
+  multiplyForm.addEventListener('submit', (evt) => {
+    //prevent route to /node
+    evt.preventDefault();
+    //create array containing multiples of the requested number
+    let multiplier = parseInt(document.querySelector('#mults-of').value);
+    let uptoMax = parseInt(document.querySelector('#max').value);
+    let returnArray = [];
+    let nextMult = multiplier;
+    while (nextMult <= uptoMax) {
+          console.log('in while function')
+          returnArray.push(nextMult);
+          nextMult += multiplier;
+        }    
+    // print array to console
+    console.log(returnArray);
+  });
 
 </script>
 
